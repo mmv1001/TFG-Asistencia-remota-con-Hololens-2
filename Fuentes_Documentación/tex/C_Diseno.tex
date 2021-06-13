@@ -1,0 +1,45 @@
+\apendice{Especificación de diseño}
+
+\section{Introducción}
+
+En este apéndice definiremos como han sido resueltos todos los objetivos y requisitos establecidos en el proyecto. Se describirá en detalle los datos manejados por la aplicación, su arquitectura y el diseño de las interfaces.
+
+\section{Diseño de datos}
+
+Los datos utilizados en este proyecto son:
+\begin{itemize}
+    \item \textbf{Vídeo y sonido:} La razón por la que estos 2 datos se encuentran englobados en la misma categoría se debe la forma que estos son manipulados. Tanto información de las imágenes (cada segundo de vídeo enviado esta está compuesto por 30 imágenes) como el sonido son comprimidos y enviados en forma de \textit{bytes} a través del servidor. Posteriormente esta información es recibida y descomprimida para su visualización. La compresión de vídeo se realiza para no requerir de un ancho de banda excesivamente grande  y así garantizar el correcto funcionamiento de las conexión.
+    \item \textbf{Coordenadas:} Están compuestas por una coordenada X y una coordenada Y. El valor máximo de la coordenada X e Y está definido por la resolución del monitor utilizado. El valor mínimo de ambas coordenadas es de 0 y este corresponderá con la esquina inferior izquierda de la pantalla. Estos valores se almacenan en un string y son enviados al servidor.  
+    \item \textbf{Mensajes:} Si un botón de la interfaz ejecuta una funcionalidad, y esta interactúa tanto con la aplicación del ordenador como la de las HoloLens 2, se envía un mensaje al servidor en forma de \textit{string} para indicar a la otra aplicación que realice la operación que sea correspondiente.
+\end{itemize}
+
+
+\section{Diseño arquitectónico}
+
+Aunque el proyecto de como resultado 2 aplicaciones (una aplicación de escritorio para dispositivos con Windows y otra para HoloLens 2) el grado de complejidad de la arquitectura de este no es muy alto. El proyecto cuenta con 2 escenas, una para cada aplicación. Estas comparten la misma base, pero se diferencian en que cada una está configurada para funcionar con los \textit{inputs} del dispositivo donde este instalada, teclado y ratón para el ordenador, y gestos con las manos para las gafas. La otra diferencia se encuentra en que cada aplicación tiene una interfaz personalizada que se ajusta a sus necesidades.
+
+Ambas escenas cuentan con un \textit{script} principal que se encarga de conectarse al servidor local. Este es el encargado de realizar la comunicación entre las 2 aplicaciones. Envía y recibe la señal de audio y vídeo, manda las coordenadas del ordenador a las HoloLens 2 e intercambia los mensajes que indican las acciones a ejecutar por la interfaz.
+
+\imagen{Diagrama en blanco.png}{Se muestra un diagrama sobre la arquitectura del proyecto}
+
+\section{Diseño de interfaces}
+
+Primero se desarrolló un boceto de la interfaz de ambas aplicaciones donde hubiese acceso a todas las funcionalidades propuestas.
+
+\imagen{Interfaz diagrama.png}{Se muestra un diagrama sobre la interfaz de ambas aplicaciones del proyecto}
+
+Más tarde, haciendo uso de los \textit{gameObjets} relacionados con interfaces proporcionados por el software de Unity, se implementó el diseño en las 2 aplicaciones.
+\newpage
+\subsection{HoloLens 2}
+Como resultado de la implementación del diseño veremos en la primera ventana de las gafas el código para inicializar la videoconferencia (véase Fig C.3 sección \ref{fig5}).
+\imagen{codigoo}{Se muestra la pantalla de inicio donde aparece el código.}\label{fig5}
+Una vez establecida la conexión la siguiente ventana nos mostrará la interfaz y la \textit{webcam} del otro usuario (véase Fig C.4 sección \ref{fig6}).
+\imagen{holointer}{Se muestra la interfaz con los botones y el plano donde una vez establecida la conexión aparecerá la \textit{webcam} del ordenador.}\label{fig6}
+\newpage
+\subsection{Ordenador}
+Primero la aplicación nos mostrará la ventana donde introducir el código de las gafas (véase Fig C.5 sección \ref{fig7}).
+\imagen{itroducircodigo}{Se muestra la ventana inicial donde se introduce el código de las HoloLens 2 para establecer al conexión.}\label{fig7}
+La siguiente pantalla cuenta con un interfaz con botones. Si tenemos conectada una \textit{webcam} en la esquina inferior derecha se mostrará su imagen (véase Fig C.6 sección \ref{fig8}). 
+\imagen{ordenador}{Se muestra la ventana donde se retransmite la perspectiva de las HoloLens 2.}\label{fig8}
+
+\imagen{diagrama}{Se muestra el diagrama de interacción de la aplicación.}

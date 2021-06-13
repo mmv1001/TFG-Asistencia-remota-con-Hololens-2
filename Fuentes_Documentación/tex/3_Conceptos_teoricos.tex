@@ -1,0 +1,148 @@
+\capitulo{3}{Conceptos teóricos}
+
+En este apartado se explicarán diferentes conceptos del proyecto relacionados con el desarrollo en Unity y con el dispositivo de realidad mixta HoloLens 2.
+
+El desarrollo de aplicaciones en un motor gráfico como Unity es ligeramente diferente a la clásica programación orientada a objetos, por ello se cubrirán los aspectos básicos que son desconocidos para aquellas personas que nunca hayan trabajado con este tipo de entornos de desarrollo.
+
+\section{HoloLens 2}
+
+En este apartado de conceptos teóricos veremos toda la parte relacionada con las HoloLens 2.
+
+\subsection{\textit{Augmented Reality} (AR)}
+
+La realidad aumentada \cite{wiki:ar} permite la superposición de información y objetos virtuales sobre la información física del entorno que te rodea. Todo esto es posible a través de un dispositivo tecnológico que disponga de una cámara, para obtener los datos del espacio real, y de una pantalla para mostrar el resultado de la mezcla de los datos reales y virtuales.
+
+Por lo general los teléfonos móviles son los más usados para la realidad aumentada, pero en este caso se va a hacer uso de un dispositivo especialmente diseñado para esto, las HoloLens 2, ya que estas ofrecen unas funcionalidades extra que no poseen los móviles.
+
+\subsection{\textit{Virtual Reality} (VR)}
+
+La realidad virtual \cite{wiki:vr} consiste en la simulación virtual de un entorno de apariencia real donde puedas interactuar con este y los objetos que se encuentren dentro. El entrono generado tiene que dar al usuario la sensación de inmersión para una experiencia más realista. 
+
+Para experimentar esta simulación es necesario hacer uso de unas gafas o cascos de realidad virtual. Las gafas pueden ir complementadas de diferentes accesorios como mandos, guantes y trajes espaciales para \textit{tracking} y estaciones base para detectar el espacio de la habitación donde realizas la inmersión.
+
+\subsection{\textit{Mixed reality} (XR)}
+
+La realidad mixta \cite{wiki:xr,microsoft:xr} es la combinación de realidad aumentada y virtual. En ella vamos a poder visualizar e interactuar tanto con el espacio y objetos reales, como con todos los elementos virtuales. 
+
+Este proyecto combina ambas realidades al señalar objetos del entorno con objetos virtuales en forma de flechas. Además, se puede interactuar con la interfaz virtual de la vídeoconferencia, posicionándola de la forma más cómoda en cualquier punto de la sala donde te encuentres.
+
+\subsection{Gafas inteligentes XR HoloLens 2}
+
+Dispositivo de realidad mixta con forma de gafas inteligentes desarrolladas y fabricadas por Microsoft. Fueron lanzadas el 7 de noviembre de 2019 como sucesoras de las primeras HoloLens, siendo sus mejoras más relevantes el aumento del FOV \ref{sub:fov} de las lentes de las gafas, mayor capacidad de procesamiento, funcionalidades de \textit{hand tracking} y \textit{eye tracking} eliminando así el mando que se usaba anteriormente para controlarlas.
+
+Gracias a estas gafas podemos visualizar hologramas en realidad aumentada posicionados sobre el espacio que nos rodea, y así interactuar con ellos tocándolos, agarrándolos, girándolos y realizar todo tipo de trasformaciones que podamos necesitar para hacer más cómoda la experiencia de la realidad mixta.
+
+
+\subsection{FOV}\label{sub:fov}
+
+El \textit{filed of view} \cite{unity:fov} en español “campo de visión” es la extensión del entorno que podemos observar en un momento de tiempo dado. En este caso vamos a tener dos FOVs. El virtual, que viene limitado por el tamaño y la resolución de las pantallas de las HoloLens 2. Y el real, se corresponde campo de visión que nos ofrecen nuestros ojos, y este variará dependiendo de la persona.
+
+Contaremos con 52 grados de visión horizontal para observar el entorno virtual y unos 180 grados aproximadamente para observar el entorno real. Una diferencia bastante grande que generara dificultades para observar ambos entornos a la vez.
+
+
+\subsection{\textit{Traking}}
+
+En español “seguimiento” \cite{microsoft:seguimientomanos,microsoft:seguimientoojos} consiste en obtener la ubicación exacta de objetos en tiempo real a través del uso de diferentes sensores y/o cámaras complementándolo con algoritmos de inteligencia artificial.
+Las HoloLens 2 puede realizar el seguimiento tanto de manos como de ojos. 
+
+
+Toda la información que necesitan procesar para realizar el \textit{tracking} proviene de:
+\begin{itemize}
+	\item\textbf{Seguimiento de la cabeza:} 4 cámaras de luz visible.
+	\item\textbf{Seguimiento de los ojos:} 2 cámaras de infrarrojos.
+	\item\textbf{Profundidad:} 1 sensor de profundidad de tiempo de vuelo de 1 MP.
+	\item\textbf{Unidad de medida inercial (IMU):} Acelerómetro, giroscopio, magnetómetro.
+	\item\textbf{Cámara:} Vídeo 1080p30 de fotogramas 8-MP.
+\end{itemize}
+
+
+\imagen{handtracking.png}{Se muestra la comparación entre unas manos físicas y el resultado virtual del tracking. \cite{microsoft:tracking}}
+
+\subsection{Asistencia remota}
+
+Esta nos permite conectar a través de internet dos dispositivos que estén en diferentes partes del mundo. Una vez realizada la conexión un técnico podrá ofrecer soluciones en tiempo real a través de la información (normalmente a través del envío de vídeo) que este reciba el usuario al otro lado de la conexión.
+
+En esta aplicación se busca conectar un técnico en un ordenador y un usuario sin formación que lleve puestas las HoloLens 2, que ejecutará las órdenes que vaya recibiendo del experto.
+
+\subsection{Asignación espacial}
+
+Es la capacidad que tiene un dispositivo de generar un mapa 3D completamente detallado del entorno que le rodea \cite{microsoft:spatialmapping}. Con la asignación espacial somos capaces de anclar objetos virtuales al mundo real. Esto lo podemos conseguir gracias a diferentes sensores y cámaras que poseen las HoloLens 2 para detectar el espacio. Gracias a estas herramientas las gafas son capaces de comprender e interactuar con esa información del mundo real, para así dar mayor realismo y funcionalidad a los hologramas generados. 
+
+\imagen{zed_mesh_filter.jpg}{Se muestran 3 ejemplos de asignación espacial variando la cantidad de triángulos que los conforman. \cite{stereolabs:spatialmapping}}
+
+\section{Unity}
+
+En este apartado se describen los conceptos relacionados con el motor gráfico Unity: 
+
+\subsection{Motor gráfico}
+
+Generalmente están orientados a la creación de videojuegos, pero también son utilizados para desarrollar simuladores u otro tipo de aplicaciones con gráficos 3D. Los motores gráficos \cite{blogthinkbig:motorgrafico} nos ofrecen un conjunto de herramientas que nos facilitan este desarrollo, donde las más importantes y utilizadas son:
+\begin{itemize}
+	\item Renderización de gráficos 2D y 3D.
+	\item Físicas de objetos y colisiones.
+	\item Sistemas de partículas.
+	\item Animación de objetos.
+	\item Sonido y música.
+	\item Programación de scripts.
+	\item Inteligencia artificial.
+	\item Conexión con la red.
+	
+\end{itemize}
+\subsection{Unity}
+
+Este proyecto ha sido desarrollado en Unity \cite{unity:unity}. Este es uno de los motores de videojuegos más importantes y utilizados en el desarrollo de videojuegos. Esto se debe a toda la cantidad de funcionalidades que ofrece, compatibilidad como todo tipo de programas del mismo sector y ser accesible para todo el mundo porque su licencia básica es completamente gratuita.
+
+El lenguaje de programación que utiliza Unity es C\#, un lenguaje orientado a objetos desarrollado por Microsoft. Dentro de este motor se le da un uso un tanto especial, ya que en vez de realizar una programación orientada a objetos, esta es orientada los componentes que forman los GameObjects.
+
+\subsection{C\#}
+
+Lenguaje de programación \cite{Microsoft:c} desarrollado por Microsoft para ser parte de su \textit{framework} .NET. Este deriva de C y C++ y es compatible con la mayoría de sistemas operativos más utilizados. 
+
+\subsection{\textit{GameObject}}
+
+Es la clase más básica y principal del desarrollo en Unity. Esta representa a un objeto colocado en una escena con unas coordenadas correspondientes a espacio 2D o 3D. El cómo observemos este \textit{GameObject} \cite{unity:gameobject} dependerá de los componentes que estén asociados a este. Dependiendo de los componentes que le tenga, el objeto variará en forma, textura, color, comportamiento, funcionalidad, etc.
+
+Todos los \textit{GameObjects} tienen como mínimo un componente de trasformación para poder existir. Este indica las coordenadas del objeto en el mundo creado.
+
+Un \textit{GameObject} podría ser definido como un contenedor de componentes.
+
+\subsection{Componentes}
+
+Los componentes en Unity son aquellos que van a definir por completo todas las características de un objeto. Los más comunes que implementan las funcionalidades más importantes son:
+\begin{itemize}
+	\item\textbf{\textit{Transform.}} Posición, rotación y escala de un objeto.
+	\item\textbf{\textit{Camera.}} Componente que captura y muestra “el escenario” al usuario.
+	\item\textbf{\textit{Mesh.}} Da forma a la malla de los objetos y esta contiene toda la información de los vértices de los triángulos que componen la malla.
+	\item\textbf{\textit{Material.}} Tiene toda la información de las propiedades de un material, como textura, color, relieve... Sumándole el componente de la malla obtenemos la representación gráfica de los objetos.
+	\item\textbf{\textit{AudioSource.}} Genera sonidos en 3D con un objeto como origen.
+	\item\textbf{\textit{Physics.}} Conjunto de métodos que otorgan propiedades físicas a los objetos como masa, gravedad, velocidad, etc.
+	\item\textbf{\textit{Collider.}} Permite que un objeto colisione con otro.
+	\item\textbf{\textit{Script.}} Asocia un script con un objeto.
+	
+\end{itemize}
+
+\subsection{\textit{Raycast}}
+
+Componente perteneciente al apartado de físicas. Desde un punto de origen lanza un rayo en una dirección hasta que alcanza su longitud máxima o choca contra un \textit{collider} \cite{unity:raycast}. Una vez ha colisionado con un objeto devuelve las coordenadas exactas ese punto. En caso de no chocar con nada no devuelve ningún resultado.
+
+\subsection{Escenas}
+
+Para evitar que el espacio sobre el que trabajemos este sobrecargado y tenga problemas de rendimiento, Unity divide “el mundo” en escenas \cite{unity:scenes}. Estas escenas pueden ser cargadas y quitadas en cualquier momento, y así poder organizar tu proyecto en diferentes espacios de trabajo. 
+
+En proyectos de gran tamaño son usadas para optimizar los recursos. Se cargan los niveles cuando se van a hacer uso y así evitar un derroche innecesario de recursos. Consiguiendo como fin obtener una mejora en el rendimiento que garantiza una experiencia para el usuario más agradable.
+
+En este proyecto se hace uno de 2 escenas para separar la aplicación de las HoloLens 2 y la del ordenador.
+
+\subsection{Rendimiento}
+
+Se entiende por rendimiento a maximizar la velocidad de renderización de los gráficos de la aplicación. Cuanto mejor sea el rendimiento mejor calidad tendrá el producto final y mejor experiencia ofrecerá al usuario. El rendimiento es medido en \textit{Frames per Second} (FPS) \ref{sub:fps}, a mayor cantidad, mayor rendimiento.
+
+Para obtener un mayor rendimiento existen 2 posibilidades, invertir en un hardware más potente u optimizar todos los objetos de la escena de Unity. En el caso de este proyecto la primera opción es imposible, puesto que, no existe ningún dispositivo con las funcionalidades que ofrece las HoloLens 2 que tenga mayor potencia.
+
+Por lo que para obtener la mayor cantidad de FPS la única posibilidad es optimizar al máximo las escenas de Unity.
+
+\subsection{FPS}\label{sub:fps}
+
+Siglas de fotogramas por segundo \cite{wiki:fps}, como su nombre indica es la cantidad de imágenes que son imprimidas en nuestra pantalla por segundo. La frecuencia de actualización máxima de las HoloLens 2 tiene un límite establecido en 60 FPS, por lo que lo ideal sería alcanzar esa cifra. Lamentablemente cuando la vista en primera persona de las gafas es grabada, esta baja su frecuencia de actualización a la mitad. Esto se debe a un límite físico creado por la capacidad de procesamiento de la CPU.
+
+Al ser completamente indispensable la grabación de la pantalla de las HoloLens 2 para la realización del proyecto, la mayor cantidad de rendimiento que se va a poder obtener es de 30 FPS.

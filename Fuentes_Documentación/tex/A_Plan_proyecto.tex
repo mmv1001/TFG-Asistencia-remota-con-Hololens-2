@@ -1,0 +1,262 @@
+\apendice{Plan de Proyecto software}
+
+\section{Introducción}
+
+La planificación es fundamental durante el comienzo de un proyecto. En esta fase se realiza una estimación del trabajo, tiempo y recursos económicos que va a ser necesarios para la ejecución del proyecto. Esta planificación se divide en planificación temporal y estudio de viabilidad.
+
+En la planificación temporal se comenzará marcando los objetivos técnicos y funcionales que componen el proyecto. Una vez establecidos estos objetivos, se dividirán en distintas tareas de mayor sencillez que serán repartidas a lo largo de un calendario. Posteriormente se asignará una estimación de tiempo aproximada a cada tarea. Finalmente se marcará la fecha de inicio y la fecha de finalización estimada del proyecto.
+
+El estudio de viabilidad se centrará en el apartado económico y legal del proyecto, donde analizaremos la legalidad y el presupuesto relacionado con este.
+
+Las dos partes que componen el estudio de viabilidad son:
+\begin{itemize}
+    \item \textbf{Viabilidad económica:} estimación de beneficios y costes que implica la realización del proyecto.
+    \item \textbf{Viabilidad legal:} análisis de todas las licencias de las herramientas utilizadas en el desarrollo del proyecto.
+\end{itemize}
+\section{Planificación temporal}
+
+Todo el desarrollo del proyecto ha sido basado sobre la metodología ágil Scrum. Se han seguido las principales características de esta metodología, a excepción de algunas como, las reuniones diarias con el equipo, ya que al ser el trabajo de fin de grado los máximos participantes en el equipo de desarrollo son un estudiante, más la guía recibida por los tutores durante las reuniones.
+
+Las 300 horas disponibles del TFG fueron divididas en 10 \textit{sprints} con una duración de 1 semana (de lunes a viernes) por cada \textit{sprint}. Hay un \textit{sprint} final dedicado a la documentación y entrega del TFG.
+
+\subsection{\textit{Sprint} 0 (08/02/2021 - 14/02/2021)}
+Primer \textit{sprint} que marcó el inicio del proyecto. El tutor de ITCL me recomendó utilizar esta semana para realizar una primera toma de contacto con Unity y con las HoloLens 2 para que posteriormente, pudiese realizar estimaciones aproximadas del tiempo que iba a costar realizar cada tarea del proyecto.
+
+Más tarde, seleccioné todas las herramientas de las que iba hacer uso durante todo el trabajo.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Elección del repositorio.
+    \item Elección de la herramienta para la gestión de proyectos.
+    \item Elección de la herramienta para el control de versiones.
+    \item Elección de la herramienta para la documentación.
+    \item Elección del entorno de desarrollo (IDE).
+    \item Toma de contacto con Unity.
+    \item Toma de contacto con las HoloLens 2.
+\end{enumerate}
+\imagen{sprint0}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 0}
+\subsection{\textit{Sprint} 1 (15/02/2021 - 21/02/2021)}
+En esta semana tuve mi primera reunión con el tutor del centro tecnológico ITCL, donde establecimos los objetivos del proyecto y organizamos las tareas principales en las que se iba a dividir el desarrollo. 
+
+Posteriormente investigué e instalé todos los recursos que iba a necesitar para desarrollar la aplicación en el software de Unity.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Investigación de Mixed Reality Toolkit.
+    \item Instalación de Visual Studio 2019.
+    \item Instalación del SDK (\textit{software development kit)} de Windows 10.
+    \item Instalación del emulador de HoloLens 2 para el ordenador.
+\end{enumerate}
+\imagen{sprint1}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 1}
+\subsection{\textit{Sprint} 2 (22/02/2021 - 28/02/2021)}
+Los objetivos de este \textit{sprint} fueron: la configuración del proyecto de Unity y la instalación de los \textit{plugins} necesarios. Una vez configurado todo, se experimentará con los ejemplos proporcionados por el \textit{plugin} y se realizará una \textit{build} de prueba en las HoloLens 2. Al final de la semana iniciar la documentación con \LaTeX  usando el editor online Overleaf.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Configuración del proyecto.
+    \item Instalación de Mixed Reality Toolkit.
+    \item Aprendizaje de Mixed Reality Toolkit.
+    \item \textit{Build} de prueba.
+    \item Inicio de la documentación.
+\end{enumerate}
+\imagen{sprint2}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 2}
+\subsection{\textit{Sprint} 3 (01/03/2021 - 07/03/2021)} \label{spint3}
+Una vez realizada una toma de contacto con Mixed Reality Toolkit la labor de esta semana consistirá en realizar uno de los objetivos principales del proyecto: Detectar el espacio real y generar objetos virtuales anclados a ese espacio.
+
+Para lograr estos objetivos primero investigué la forma de obtener el objeto virtual correspondiente al espacio real. Una vez obtenido ese objeto realicé una \textit{build} de prueba, donde cada vez que realizaba un gesto con la mano generaba un objeto en realidad aumentada.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Obtener la asignación espacial.
+    \item Lanzar un \textit{raycast} y que colisione con la asignación espacial.
+    \item Generar un objeto en las coordenadas de la colisión.
+    \item Realizar \textit{build} para probar las funcionalidades implementadas.
+    \item Ampliar documentación.
+\end{enumerate}
+\imagen{sprint3}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 3}
+\subsection{\textit{Sprint} 4 (08/03/2021 - 14/03/2021)}
+Una vez cumplidas las tareas del \textit{sprint} anterior se investigará como conectar la aplicación de las HoloLens 2 con un ordenador. Esta semana estuvo dedicada completamente a probar diferentes métodos y herramientas que cumplieses con las necesidades de mi proyecto.
+
+La conclusión sacada esta semana sobre la herramienta a utilizar fue el proyecto de código abierto WebRTC. 
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Investigar cómo realizar la conexión entre las 2 aplicaciones.
+    \item Prueba de Photon Unity Network 2.
+    \item Prueba de Microsoft Azure.
+    \item Prueba de WebRTC.
+\end{enumerate}
+\imagen{sprint4}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 4}
+\subsection{\textit{Sprint} 5 (15/03/2021 - 21/03/2021)} \label{spint5}
+Los objetivos de este \textit{sprint} fueron: aprender a usar WebRTC para desarrollar 2 aplicaciones que se puedan comunicar compartiendo vídeo en tiempo real entre ambas y realizar un prototipo de videollamada.
+
+Durante esta semana surgieron numerosos \textit{bugs} relacionados con la configuración de WebRTC y la comunicación de la señal de video. El prototipo de videollamada realizado al final de la semana también tuvo un gran número problemas relacionados con el rendimiento de la aplicación de las HoloLens 2.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Instalación del proyecto node-dss.
+    \item Configurar el proyecto de Unity con el \textit{raycast} de WebRTC.
+    \item Detectar la \textit{webcam} del ordenador.
+    \item Detectar la cámara de las HoloLens 2.
+    \item Compartir la señal de video entre las aplicaciones.
+    \item Crear un prototipo de videollamada.
+\end{enumerate}
+En este \textit{sprint} cerré todas las tareas al final de la semana por eso el gráfico tiene esta forma (véase Fig A.3 sección \ref{fig1}).
+\imagen{sprint5}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 5} \label{fig1}
+\subsection{\textit{Sprint} 6 (22/03/2021 - 28/03/2021)}
+Los objetivos de este \textit{sprint} fueron:
+\begin{enumerate}
+    \item Arreglar el \textit{bug} de rendimiento de la semana anterior.
+    \item Juntar los prototipos creados en: el \textit{sprint} 3 y 5.
+    \item Enviar las coordenadas a las HoloLens 2 haciendo clic en la pantalla.
+    \item Recibir las coordenadas.
+    \item Generar el objeto en realidad mixta.
+    \item Hacer \textit{build} y probar todas las funcionalidades implementadas.
+\end{enumerate}
+
+Esta semana fue la que mayor carga de trabajo tuvo debido al gran número de funcionalidades a pensar e implementar. A esto se le suman los problemas que surgieron para calibrar la generación del objeto virtual.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Juntar la videollamada con la asignación espacial.
+    \item Comprobar que todo funcione correctamente.
+    \item Enviar mensajes desde el ordenador.
+    \item Recibir mensajes en las HoloLens 2.
+    \item A través de las coordenadas recibidas lanzar un \textit{raycast}.
+    \item Generar un objeto donde colisione un \textit{raycast} con la asignación espacial.
+    \item Hacer \textit{build} de las dos aplicaciones para probar las funcionalidades implementadas.
+\end{enumerate}
+Al igual que en la semana anterior cerré todas las tareas al final de la semana por eso el gráfico tiene esta forma (véase Fig A.5 sección \ref{fig3}).
+\imagen{sprint6}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 6}\label{fig3}
+\subsection{\textit{Sprint} 7 (29/03/2021 - 04/04/2021)}
+Los objetivos de este \textit{sprint} fueron: implementar funcionalidades características de una video llamada y diseñar una interfaz para las HoloLens 2 para así poder acceder a esas funcionalidades.
+
+Tras implementar todas las funcionalidades volvió a aparecer el \textit{bug} de rendimiento del sprint 5.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Pensar las funcionalidades a implementar.
+    \item Crear una barra de menú.
+    \item Implementar seguimiento radial al menú.
+    \item Permitir que el menú sea manipulable.
+    \item Crear botón de colgar.
+    \item Crear botón de silenciar el micrófono.
+    \item Crear botón de esconder la \textit{webcam}.
+    \item Crear botón de ensordecer la llamada.
+    \item Crear botón de esconder la interfaz.
+    \item Probar los cambios.
+    
+\end{enumerate}
+\imagen{sprint7}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 7}
+\subsection{\textit{Sprint} 8 (05/04/2021 - 11/04/2021)}
+Los objetivos de este \textit{sprint} fueron: implementar las funcionalidades características de una video llamada y diseñar una interfaz en la aplicación del ordenador para acceder a estas.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Crear una barra de menú.
+    \item Crear botón de generar flechas.
+    \item Crear botón de borrar todas las flechas.
+    \item Crear botón de borrar la última flecha generada
+    \item Crear botón de colgar.
+    \item Crear botón de silenciar el micrófono.
+    \item Crear botón de esconder la \textit{webcam}.
+\end{enumerate}
+\imagen{sprint8}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 8}
+\subsection{\textit{Sprint} 9 (12/04/2021 - 18/04/2021)}
+Los objetivos de este \textit{sprint} fueron: arreglar los \textit{bugs} arrastrados de otros \textit{sprints}, pulir lo máximo posible los prototipos y lanzar las versiones finales de las aplicaciones.
+
+Las tareas planificadas en esta semana fueron:
+\begin{enumerate}
+    \item Arreglar \textit{bug} rendimiento.
+    \item Arreglar \textit{bug} del sonido duplicado. 
+    \item Organizar escena de Unity. 
+    \item Realizar la \textit{build} final.
+\end{enumerate}
+\imagen{sprint9}{Se muestra un gráfico con el cierre las tareas de \textit{sprint} número 9}
+\subsection{\textit{Sprint} 10 (19/04/2021 - Activo)}
+Este último \textit{sprint} está dedicado a la finalización de la documentación y a preparar la entrega del TFG el 14 de Junio de 2021.
+
+Las tareas planificadas en \textit{sprint} fueron:
+\begin{enumerate}
+    \item Finalizar la documentación.
+    \item Realizar entrega del todos los materiales relacionado con el TFG.
+\end{enumerate}
+Por último, se mostrará la evolución de las tareas a lo largo del tiempo (véase Fig A.11 sección \ref{fig2}) y la carga de trabajo de los \textit{sprints} (véase Fig A.12 sección \ref{fig4}).
+\imagen{issues}{Se muestra un gráfico con el despliegue en el tiempo las tareas realizadas}\label{fig2}
+\imagen{issues2}{Se muestra un gráfico con la carga de trabajo de los 7 últimos \textit{sprints} del proyecto}\label{fig4}
+\section{Estudio de viabilidad}
+\subsection{Viabilidad económica}
+
+En esta sección analizaremos los costes económicos para poder llevar a cabo el desarrollo del proyecto en un entorno real.
+
+\subsubsection{Costes de personal}
+
+El proyecto se ha llevado a cabo por un único desarrollador durante 10 semanas con una jornada laboral de 6 horas al día. Considerando un salario bruto de 20000€ anuales, el coste del personal sería el siguiente:
+
+\tablaSmallSinColores{Coste del personal}{ l | c }{coste_personal}
+{\textbf{Concepto} & \textbf{Coste} \\}{
+    Salario mensual neto & 1.366,0€ \\
+    Retención del IRPF & 194,83€ \\
+    Cuotas a la Seg. Social  & 471,66€ \\
+    Coste mensual del trabajador & 2.032,49€ \\ \hline
+    \textbf{Coste total de las 10 semanas} & 5.081,22€ \\
+}
+La cuota a la seguridad social es del 28,3\% \cite{ss:porcentaje} y la retención del IRPF es del 11,69\% \cite{hacienda:somostodos}.
+
+
+
+\subsubsection{Costes de hardware}
+
+En este apartado añadiremos todos los costes relacionados a dispositivos hardware utilizados en el proyecto. Consideramos una amortización a los 5 años y un uso de 2 meses y medio.
+
+\tablaSmallSinColores{Coste del hardware}{ l | c | c }{coste_hardware}
+{\textbf{Concepto}\hspace{0.5cm} & \hspace{0.5cm}\textbf{Coste}\hspace{0.5cm} & \hspace{0.5cm}\textbf{Amortización} \\}{
+    Ordenador & 500€ & 104,17€\\
+    HoloLens 2 & 3.849€ & 801,90€\\ \midrule
+    \textbf{Total} & 4.349€ & 906,07€\\ 
+}El precio del ordenador está basado en una aproximación que tiene en cuenta el valor de los componentes que marcan los requisitos recomendados por Unity.
+
+\subsubsection{Costes de software} \label{software}
+
+En este apartado añadiremos todos los costes relacionados a licencias de software utilizadas en el proyecto. Consideramos una amortización de 2 años.
+
+\tablaSmallSinColores{Coste del hardware}{ l | c | c }{coste_software}
+{\textbf{Concepto}\hspace{0.5cm} & \hspace{0.5cm}\textbf{Coste}\hspace{0.5cm} & \hspace{0.5cm}\textbf{Amortización} \\}{
+    Windows 10 Home & 145€ & 54,37€\\ \hline
+    \textbf{Total} & 145€ & 54,37€\\ 
+}
+
+En un supuesto en el que se comercializase la aplicación y esta generase un beneficio mayor de 100000 dólares, sería necesario comprar la licencia de Unity Pro que tiene un valor de 150 dólares mensuales.
+
+\subsubsection{Costes totales}
+La suma de los costes totales es la siguiente:
+
+\tablaSmallSinColores{Coste total}{ l | c }{coste_total}
+{\textbf{Concepto} & \textbf{Coste} \\}{
+    Personal & 5.081,22€ \\
+    Hardware & 906,07€ \\
+    Software  & 54,37€ \\ \hline
+    \textbf{Coste total} & 6.041,66€ \\
+}
+
+\subsection{Viabilidad legal}
+ En este apartado se mostrará las licencias de todo el software involucrado en la creación del proyecto.
+ 
+\tablaSmallSinColores{Licencias}{ l | l }{licencias}
+{\textbf{software} & \textbf{Licencia} \\}{
+    Mixed Reality ToolKit & MIT License \\
+    WebRTC for Mixed Reality & MIT License\\
+    Node-dss & MIT License\\
+    Node.js  & MIT License\\ \hline
+    Documentación & CC-BY-4.0 \\
+}
+
+Haciendo alusión al apartado de los costes de software \ref{software}, en un principio no sería necesario pagar la versión Pro de Unity si no superamos los 100000 dólares de beneficio. Por lo tanto, no tendríamos ningún problema para comercializar el software.
+
+En este proyecto se ha hecho uso de programas opcionales como Rider y GitKraken, cuyas licencias venían incluidas en el GitHub Student Developer Pack al que se tienen acceso por ser estudiante de la Universidad de Burgos. En un entorno empresarial real sería necesario adquirir ambas licencias para hacer uso de este software.
+
+\subsection{Licencia final del producto}
+
+Todos los materiales entregados en este TFG contarán con una licencia BY-NC-SA 4.0. Esta licencia permite el uso para fines académicos no comerciales. Se permite cualquier modificación mientras se siga manteniendo la misma licencia y la condición de mencionar al autor original.
+
+Al ser un prototipo realizado para ITCL, en el momento que este pase a ser un proyecto real, la licencia comercial del producto final podrá variar en consideración de ITCL.

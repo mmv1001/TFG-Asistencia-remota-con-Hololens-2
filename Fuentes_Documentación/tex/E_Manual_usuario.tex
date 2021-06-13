@@ -1,0 +1,104 @@
+\apendice{Documentación de usuario}
+
+\section{Introducción}
+
+Como el resultado del proyecto son dos aplicaciones distintas, la documentación de usuario se encontrará fraccionada en dos partes: una para el técnico que utilice la aplicación desde el ordenador y otra para el usuario sin formación que utiliza las HoloLens 2.
+
+\section{Requisitos de usuarios}
+
+Para el uso del resultado de este proyecto de necesitarán dos componentes hardware imprescindibles, un ordenador y unas HoloLens 2.
+
+Las especificaciones del ordenador serán las mismas que las expuestas en el manual de programador~\ref{recomendados}, es decir, los requisitos recomendaos para usar el software de Unity.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}Requisitos recomendados.}                                                           \\ \hline
+Sistema Opererativo         & Windows 7 / 8 / 10                                                                                                                                               \\ \hline
+Procesador           & Core 4 Duo ó superior    \\ \hline
+Memoria     & \begin{tabular}[c]{@{}p{\linewidth}@{}} 2 GB de RAM \end{tabular} \\ \hline
+Gráficos  & DirectX11 Compatible GPU con 1 GB Video RAM   \\ \hline
+Almacenamiento        &  100 MB de espacio disponible   \\ \hline
+Tarjeta de sonido & \begin{tabular}[c]{@{}p{\linewidth}@{}} DirectX compatible Tarjeta de sonido\end{tabular}    \\ \hline
+\end{tabular}
+\caption{Se muestran los requisitos recomendados por Unity para su software.}
+\end{table}
+
+Para complementar el ordenador se necesitará una \textit{webcam} y unos auriculares con micrófono para poder entablar una conversación con el usuario de las HoloLens 2.
+
+Para poder usar la otra parte del proyecto solamente se necesitarán las HoloLens 2, ya que estas están provistas del todo el hardware necesario para aprovechar todas las funcionalidades de la videoconferencia.
+
+\section{Instalación}
+
+Para instalar las aplicaciones en ambos dispositivos se seguirán los mismos pasos ya explicados en el apartado de compilación, instalación y ejecución del proyecto~\ref{pepe} en el manual del programador. 
+
+Importante tener ejecutado el servidor de Node.js cada vez que se quiera utilizar las aplicaciones.
+
+\imagen{nodeconexion}{Se muestra la ejecución del proyecto node-dss con ambos dispositivos conectados.}
+
+\section{Manual del usuario}
+
+\subsection{HoloLens 2}
+
+Antes de ponernos las gafas deberemos conocer la utilidad de los botones físicos con los que cuenta. Las funcionalidades son las siguientes:
+\begin{enumerate}
+    \item \textbf{Botón de encendido/apagado: }Pulsaremos rápidamente el botón para encender las gafas y mantendremos pulsado unos 3 segundos aproximadamente para apagarlas. 
+    \item \textbf{Puerto de carga: }A través de este puerto repondremos la batería de las gafas cuando sea necesario. El extremo del cable que conectemos a las gafas debe ser tipo USB-C.
+    \item \textbf{Botón de subir/bajar volumen: }El volumen tiene un valor mínimo de 0 y un máximo de 100. Sumaremos o restaremos 10 a este valor pulsando parte del botón donde pone + o - respectivamente.
+    \item \textbf{Botón de subir/bajar brillo: }Al igual que el volumen este tiene un valor mínimo de 0 y un máximo de 100. También sumaremos o restaremos 10 a este valor pulsando parte del botón donde pone + o - respectivamente.
+\end{enumerate}
+
+
+
+\imagen{holo2}{Se muestra un lateral de las HoloLens 2 donde se encuentran los botones de encendido, volumen, y la ranura de carga.}
+\imagen{holo3}{Se muestra un lateral de las HoloLens 2 donde se encuentran el botón del brillo.}
+
+Una vez conocidas las funciones de los botones de las gafas nos las pondremos en la cabeza y pulsaremos el botón de encendido. Tras cargar el sistema operativo tendremos que poner el código PIN elegido previamente por nosotros durante el primer uso del dispositivo de realidad mixta.
+
+Después de poner el código correctamente, tendremos que mirar la muñeca de nuestra mano hasta que aparezca el logo de Windows y pulsarlo con el dedo (véase Fig E.4 sección \ref{fig9}). 
+
+\imagen{mano}{Se muestra como abrir el menú principal de las HoloLens 2.\label{fig9}}
+
+A continuación, tras abrir el menú, pulsamos con el dedo la opción a la derecha llamada “todas”, que mostrará un listado de todas aplicaciones instaladas en las gafas. En ese listado buscaremos la aplicación llamada asistencia remota y la pulsaremos. 
+
+\imagen{menu1}{Se muestra el menú inicial de las HoloLens 2.}
+\imagen{menu2}{Se muestra la ventana con todas las aplicaciones instaladas.}
+
+Una vez abierta la aplicación proporcionaremos el código al usuario que esté en la aplicación del ordenador y esperaremos a que se establezca la conexión.
+
+\imagen{codigo}{Se muestra la ventana inicial de la aplicación donde obtenemos el código.}
+
+Tras establecer la conexión se nos mostrará una interfaz y una pantalla en realidad virtual. Las funcionalidades de la interfaz son las siguientes:
+
+\begin{enumerate}
+    \item \textbf{Pantalla:} Pantalla en realidad aumentada donde visualizaremos la imagen recibida de la \textit{webcam} del ordenador. Se puede mover, aumentar o disminuir de tamaño, rotar...
+    \item \textbf{Barra de menú:} Barra de menú que contiene todos los botones. Se puede mover, aumentar o disminuir de tamaño, rotar...
+    \item \textbf{Botón de silenciar:} Botón que silencia el micrófono de las HoloLens 2.
+    \item \textbf{Botón de esconder \textit{webcam}:} Botón que esconde la pantalla en realidad aumentada.
+    \item \textbf{Botón de ensordecer:} Botón que elimina el sonido de toda la aplicación.
+    \item \textbf{Botón de finalizar la llamada:} Botón que finaliza la llamada.
+    \item \textbf{Botón de activar/desactivar el seguimiento radial de la interfaz:} Botón que activa o desactiva el seguimiento de la interfaz sobre el movimiento de nuestra cabeza.
+    \item \textbf{Botón de esconder/mostrar la interfaz:} Botón que esconde o vuelve a activar la interfaz en realidad aumentada.
+\end{enumerate}
+
+\imagen{vistahololens}{Se muestra la pantalla virtual donde se retransmite la \textit{webcam} del ordenador y la interfaz con sus botones en realidad aumentada.}
+\newpage
+\subsection{Ordenador}
+Primero ejecutaremos el archivo de extensión \textit{.exe} creado tras hacer la \textit{build} del proyecto. Una vez abierta la pantalla de inicio colocaremos el código proporcionado por el usuario con las HoloLens 2 y pulsaremos el botón verde para iniciar la videollamada.
+
+\imagen{itroducircodigo2}{Se muestra la ventana inicial de la aplicación del ordenador.}
+
+En esta ventana se observará la retransmisión de la perspectiva de las HoloLens 2, una interfaz y nuestra propia \textit{webcam}: 
+\begin{enumerate}
+    \item \textbf{Pantalla:} Pantalla que muestra la vista de las gafas.
+    \item \textbf{\textit{Webcam}:} En la esquina inferior derecha se mostrará nuestra \textit{webcam} si la tenemos conectada.
+    \item \textbf{Botón de generar indicadores:} Botón que tras hacer clic en la pantalla, generará una flecha en realidad aumentada en el punto del espacio correspondiente.
+    \item \textbf{Botón de deshacer:} Botón que elimina el ultimo indicador generado.
+    \item \textbf{Botón de borrar:} Botón que elimina todos los indicadores de la escena.
+    \item \textbf{Botón de silenciar:} Botón que silencia el micrófono.
+    \item \textbf{Botón de desactivar la \textit{webcam}:} Botón que desactiva la \textit{webcam}.
+    \item \textbf{Botón de finalizar la llamada:} Botón que finaliza la llamada.
+\end{enumerate}
+
+\imagen{vistaordenador}{Se muestra la retransmisión de la perspectiva de las HoloLens 2 en el ordenador y nuestra propia \textit{webcam}.}

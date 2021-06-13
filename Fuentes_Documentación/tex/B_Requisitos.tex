@@ -1,0 +1,618 @@
+\apendice{Especificación de Requisitos}
+
+\section{Introducción}
+En esta sección documentaremos las funcionalidades y el alcance que va a tener el proyecto. Se mostrará en detalle los objetivos generales de la aplicación, los requisitos funcionales y los casos de uso.
+\section{Objetivos generales}
+El objetivo general es desarrollar una aplicación de escritorio para un ordenador con Windows y HoloLens 2 que permita:
+\begin{enumerate}
+    \item Iniciar la llamada.
+    \item Compartir señal de vídeo.
+    \item Compartir señal de audio.
+    \item Asistencia remota.
+    \item Interfaz para acceder a las funciones de la videoconferencia.
+    \item Manipular la interfaz.
+    \item Finalizar llamada.
+\end{enumerate}
+
+\section{Catálogo de requisitos}
+
+\subsection{Requisitos funcionales}
+\begin{itemize}
+\tightlist
+\item
+    \textbf{RF-1:} Iniciar la videoconferencia.
+    
+    \begin{itemize}
+    \tightlist
+    \item
+        \textbf{RF-1.1:} Generar un código desde las HoloLens 2.
+    \item
+        \textbf{RF-1.2:} Introducir código en el ordenador para iniciar la llamada.
+        \begin{itemize}
+        \tightlist
+        \item
+            \textbf{RF-1.2.1:} Botón de iniciar la llamada.
+        \end{itemize}
+    \end{itemize}
+\item
+    \textbf{RF-2:} Usar la videoconferencia.
+    \begin{itemize}
+    \tightlist
+    \item
+        \textbf{RF-2.1:} Visualizar la perspectiva de las HoloLens 2 desde el ordenador.
+        \begin{itemize}
+        \tightlist
+        \item
+            \textbf{RF-2.1.1:} Recibir señal de vídeo en el ordenador.
+        \item
+            \textbf{RF-2.1.2:} Recibir señal de audio en el ordenador.
+        \end{itemize}
+    \item
+        \textbf{RF-2.2:} Interfaz de la aplicación del ordenador.
+        \begin{itemize}
+        \tightlist
+        \item
+            \textbf{RF-2.2.1:} Botón para generar indicadores.
+        \item
+            \textbf{RF-2.2.2:} Botón para deshacer el último indicador generado.
+        \item
+            \textbf{RF-2.2.3:} Botón para borrar todos los indicadores.
+        \item
+            \textbf{RF-2.2.4:} Botón para silenciar el micrófono.
+        \item
+            \textbf{RF-2.2.5:} Botón para apagar la \textit{webcam}.
+        \end{itemize}
+    \item
+        \textbf{RF-2.3:} Comunicación con otro usuario desde las HoloLens 2.
+        \begin{itemize}
+        \tightlist
+        \item
+            \textbf{RF-2.3.1:} Recibir señal de vídeo en las HoloLens 2.
+        \item
+            \textbf{RF-2.3.2:} Recibir señal de audio en las HoloLens 2.
+        \end{itemize}
+    \item
+        \textbf{RF-2.4:} Interfaz de la aplicación de las HoloLens 2.
+        \begin{itemize}
+        \tightlist
+        \item
+            \textbf{RF-2.4.1:} Botón para silenciar el micrófono.
+        \item
+            \textbf{RF-2.4.2:} Botón para apagar la \textit{webcam}.
+        \item
+            \textbf{RF-2.4.3:} Botón de ensordecer.
+        \item
+            \textbf{RF-2.4.4:} Botón del seguimiento radial de la interfaz.
+        \item
+            \textbf{RF-2.4.5:} Botón para ocultar la interfaz.
+        \end{itemize}
+    \item
+        \textbf{RF-2.5:} Manipular la interfaz de las HoloLens 2.
+    \item
+        \textbf{RF-2.6:} Asistencia Remota.
+        \begin{itemize}
+        \tightlist
+        \item
+            \textbf{RF-2.6.1:} Enviar coordenadas desde el ordenador.
+        \item
+            \textbf{RF-2.6.2:} Recibir coordenadas en las HoloLens 2 y generar el indicador.
+        \end{itemize}
+    \end{itemize}
+    
+\item
+    \textbf{RF-3:} Finalizar la videoconferencia.
+    \begin{itemize}
+    \tightlist
+    \item
+    \textbf{RF-3.1:} Botón de finalizar llamada.
+    \item
+    \textbf{RF-3.2:} Vuelta a la pantalla de inicio.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Requisitos no funcionales}
+\begin{itemize}
+    \item \textbf{RNF-1 Escalabilidad:} Este requisito es el más importante debido a que al ser un prototipo, este debe poder ser escalable ya que en un futuro la empresa ITCL lo usará como la base de un nuevo proyecto.
+    \item \textbf{RNF-2 Rendimiento:} En este tipo de aplicaciones relacionadas con la realidad virtual y aumentada el rendimiento es bastante importante, ya que cuanto más fluida sea la aplicación mejor experiencia proporcionará al usuario.
+    \item \textbf{RNF-3 Comodidad:} Este requisito está directamente relacionado con el anterior, puesto que cuanto mayor rendimiento posea la aplicación mayor comodidad ofrecerá al usuario, evitando así los posibles dolores de cabeza y mareos que son bastante frecuentes usando por primera vez estas tecnologías.
+    \item \textbf{RNF-4 Mantenimiento:} La aplicación debe ser de fácil mantenimiento para poder ajustarse a su escalabilidad.
+\end{itemize}
+
+
+\subsection{Requisitos del cliente}  
+
+El único requisito exigido por la empresa ITCL ha sido utilizar el software de Unity para el desarrollo del trabajo de fin de carrera. 
+
+\section{Especificación de requisitos}
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-1.1: Generar un código desde las HoloLens 2.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} La aplicación de las HoloLens 2 debe generar un código.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario abre la aplicación de las HoloLens 2.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}El usuario comparte el código con el técnico que se encuentra en el ordenador.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-1.1:Generar un código desde las HoloLens 2.}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-1.2: Introducir código en el ordenador para iniciar la llamada.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}}  El usuario debe introducir el código en la interfaz para poder iniciar la llamada.\end{tabular} \\ \hline
+Precondiciones  & Recibir el código del otro usuario.  \\ \hline
+Acciones        & El técnico introduce el código de las HoloLens 2.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-1.2: Introducir código en el ordenador para iniciar la llamada.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-1.2.1: Botón de iniciar la llamada.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico inicia la llamada tras pulsar el botón de la interfaz.\end{tabular} \\ \hline
+Precondiciones  & Haber colocado el código en la interfaz.  \\ \hline
+Acciones        & El técnico pulsa el botón.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se inicia la videoconferencia entre las HoloLens 2 y el ordenador.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-1.2.1: Botón de iniciar la llamada..}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.1: Visualizar la perspectiva de las HoloLens 2 desde el ordenador.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico desde el ordenador debe ser capaz de ver la perspectiva de las HoloLens 2 y escuchar al usuario.\end{tabular} \\ \hline
+Precondiciones  & Establecer la conexión.  \\ \hline
+Acciones        & El técnico mira la pantalla y se coloca unos auriculares.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.1: Visualizar la perspectiva de las HoloLens 2 desde el ordenador.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.1.1: Recibir señal de vídeo en el ordenador.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico desde el ordenador debe ser capaz de ver la perspectiva de las HoloLens 2.\end{tabular} \\ \hline
+Precondiciones  & Enviar el vídeo desde las HoloLens 2.  \\ \hline
+Acciones        & El técnico ve la perspectiva del usuario.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.1.1: Recibir señal de vídeo en el ordenador.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.1.2: Recibir señal de audio en el ordenador.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico desde el ordenador debe ser capaz de escuchar al usuario con las HoloLens 2.\end{tabular} \\ \hline
+Precondiciones  & Enviar el audio desde las HoloLens 2.  \\ \hline
+Acciones        & El técnico escucha al usuario.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.1.2: Recibir señal de audio en el ordenador.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.2: Interfaz de la aplicación del ordenador.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico será capaz de utilizar todas las funcionalidades que ofrece la interfaz.\end{tabular} \\ \hline
+Precondiciones  & Establecer la conexión.  \\ \hline
+Acciones        & El técnico utiliza el ratón del ordenador para interactuar con la interfaz.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se ejecuta la funcionalidad seleccionada.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.2: Interfaz de la aplicación del ordenador.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.2.1: Botón para generar indicadores.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico interactúa con la interfaz para hacer aparecer objetos en realidad aumentada.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El técnico pulsa el botón correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Aparece un indicador en realidad aumenta en las HoloLens 2.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.2.1: Botón para generar indicadores.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.2.2: Botón para deshacer el último indicador generado.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico interactúa con la interfaz para borrar el último indicador generado.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El técnico pulsa el botón correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se borra el último indicador creado.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.2.2: Botón para deshacer el último indicador generado.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.2.3: Botón para borrar todos los indicadores.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico interactúa con la interfaz para borrar todos los indicadores creados hasta el momento.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El técnico pulsa el botón correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se borran todos las flechas de la escena.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.2.3: Botón para borrar todos los indicadores.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.2.4: Botón para silenciar el micrófono.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico interactúa con la interfaz para apagar su micrófono y así dejar de enviar audio.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El técnico pulsa el botón correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se apaga el micrófono.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.2.4: Botón para silenciar el micrófono.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.2.5: Botón para apagar la \textit{webcam}.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico interactúa con la interfaz para apagar su \textit{webcam} y así dejar de enviar vídeo.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El técnico pulsa el botón correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se apaga la \textit{webcam}.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.2.5: Botón para apagar la \textit{webcam}.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.3: Comunicación con otro usuario desde las HoloLens 2.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario con las HoloLens 2 debe ser capaz comunicarse y ver al técnico que esta en el ordenador.\end{tabular} \\ \hline
+Precondiciones  & Establecer la conexión.  \\ \hline
+Acciones        & El usuario se coloca las HoloLens 2 en la cabeza.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}El usuario escucha y ve la \textit{webcam} del técnico.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.3: Comunicación con otro usuario desde las HoloLens 2.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.3.1: Recibir señal de vídeo en las Hololens 2.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario debe ser capaz de ver en una pantalla en realidad aumentada las \textit{webcam} del técnico.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario mira a la pantalla en realidad aumentada.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.3.1: Recibir señal de vídeo en las Hololens 2.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.3.2: Recibir señal de audio en las HoloLens 2.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario debe ser capaz de escuchar al técnico a través de las HoloLens 2.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario activa los altavoces del las HoloLens 2.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.3.2: Recibir señal de audio en las HoloLens 2.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.4: Interfaz de la aplicación de las HoloLens 2.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario será capaz de utilizar todas las funcionalidades que ofrece la interfaz de las HoloLens 2.\end{tabular} \\ \hline
+Precondiciones  & Establecer la conexión.  \\ \hline
+Acciones        & El usuario interactúa mediante gestos de manos con la interfaz.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se ejecuta la funcionalidad seleccionada.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.4: Interfaz de la aplicación de las HoloLens 2.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.4.1: Botón para silenciar el micrófono.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario interactúa con la interfaz virtual para apagar su micrófono y así dejar de enviar audio.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario pulsa el botón en realidad aumentada correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se apaga el micrófono.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.4.1: Botón para silenciar el micrófono.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.4.2: Botón para apagar la \textit{webcam}.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario interactúa con la interfaz virtual para esconder la \textit{webcam} mostrada en la pantalla virtual.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario pulsa el botón en realidad aumentada correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se esconde la \textit{webcam}.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.4.2: Botón para apagar la \textit{webcam}.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.4.3: Botón de ensordecer.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario interactúa con la interfaz virtual eliminar todo el sonido proveniente de la videoconferencia.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario pulsa el botón en realidad aumentada correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se silencia todo el sonido de la aplicación.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.4.3: Botón de ensordecer.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.4.4: Botón del seguimiento radial de la interfaz.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario interactúa con la interfaz virtual para activar o desactivar el seguimiento radial de la interfaz virtual.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario pulsa el botón en realidad aumentada correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se activa el seguimiento radial o la interfaz se queda fija.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.4.4: Botón del seguimiento radial de la interfaz.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.4.5: Botón para ocultar la interfaz.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario interactúa con la interfaz virtual para esconder toda la interfaz.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario pulsa el botón en realidad aumentada correspondiente.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Activas o desactivas la visualización de la interfaz.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.4.5: Botón para ocultar la interfaz.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.5: Manipular la interfaz de las HoloLens 2}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario de ser capaz de manipular la posición, rotación y tamaño de la interfaz virtual.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & El usuario manipulará la interfaz con gestos con las manos.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}La interfaz modificara sus características espaciales.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Media                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.5: Manipular la interfaz de las HoloLens 2}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.6: Asistencia Remota.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El técnico podrá dar indicaciones al usuario a través de la generación de indicadores.\end{tabular} \\ \hline
+Precondiciones  & Establecer la conexión.  \\ \hline
+Acciones        & El técnico hará en el monitor y el usuario verá el resultado en las HoloLens 2.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.6: Asistencia Remota.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.6.1: Enviar coordenadas desde el ordenador.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} Se enviaran al coordenadas al servidor del clic realizado por el técnico en su monitor.\end{tabular} \\ \hline
+Precondiciones  & Ninguna.  \\ \hline
+Acciones        & Hacer clic con el ratón en la pantalla del ordenador.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Envío de coordenadas al servidor.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.6.1: Enviar coordenadas desde el ordenador.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-2.6.2:Recibir coordenadas en las HoloLens 2 y generar el indicador.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} Las HoloLens 2 recogerán las coordenadas del servidor y crearán una flecha en las coordenadas correspondientes del espacio.\end{tabular} \\ \hline
+Precondiciones  & Enviar las coordenadas al servidor.  \\ \hline
+Acciones        & Las HoloLens esperan al envío de la información.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Generar el indicador en realidad aumentada.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Muy alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-2.6.2:Recibir coordenadas en las HoloLens 2 y generar el indicador.}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-3.1: Botón de finalizar llamada}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} El usuario y el técnico deberán tener la capacidad de finalizar en cualquier momento la videoconferencia.\end{tabular} \\ \hline
+Precondiciones  & Estar usando la videoconferencia.  \\ \hline
+Acciones        & Pulsar el botón de finalizar llamada.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Se termina la llamada y se realizará una transición a la pantalla de inicio.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-3.1: Botón de finalizar llamada}
+\end{table}
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|p{0.8\linewidth}|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}RF-3.2: Vuelta a la pantalla de inicio.}                                                           \\ \hline
+Versión         & 1.0                                                                                                                                               \\ \hline
+Autor           & Miguel Martín     \\ \hline
+Descripción     & \begin{tabular}[c]{@{}p{\linewidth}@{}} Una vez terminada la videoconferencia ambas aplicaciones vuelven a la pantalla de inicio.\end{tabular} \\ \hline
+Precondiciones  & Pulsar el botón de finalizar llamada.  \\ \hline
+Acciones        & Las HoloLens 2 vuelven a la pantalla de inicio.   \\ \hline
+Postcondiciones & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Excepciones     & \begin{tabular}[c]{@{}p{\linewidth}@{}}Ninguna.\end{tabular}                  \\ \hline
+Importancia     & Alta                                                                                                                                          \\ \hline
+\end{tabular}
+\caption{RF-3.2: Vuelta a la pantalla de inicio.}
+\end{table}
+
+\imagen{Casos de uso.png}{Se muestra un diagrama sobre los casos de uso derivados de los requisitos funcionales.}
+
+La ausencia del diagrama de clases se debe a la incompatibilidad de Unity y mi aplicación con este. \textit{“A pesar de que se podría crear un diagrama de clases
+de toda la aplicación, lo único que se vería sería alrededor de un par de
+centenares (incluyendo los plugins) de clases inconexas que heredan de
+MonoBehaviour (la clase que controla el comportamiento genérico de los
+componentes de Unity), por lo que no se considera necesario.”} \footnote{Rodrigo Varga. \textit{Prototipo de simulador de carretilla elevadora Documentación Técnica.} 13 de febrero de 2018. Disponible en la biblioteca de la Universidad de Burgos.}

@@ -1,0 +1,53 @@
+\capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
+
+En este apartado se hará mención de los puntos más relevantes ocurridos durante el desarrollo de este proyecto. Comentaré los problemas de mayor importancia aparecidos durante la implementación de ciertas funcionalidades de la aplicación y las decisiones que tomé para eludirlos.
+
+\section{Inicio del proyecto}
+
+Las primeras semanas del proyecto fueron completamente dedicadas a la planificación de todas las tareas por realizar, investigación y a la toma de contacto con las herramientas con las que iba a trabajar.
+
+Primero instalé Unity y creé un proyecto de prueba para aprender los todos conceptos básicos y sus herramientas. Más adelante cuando ya contaba con una base de conocimientos, programé unos pequeños scripts en C\# para ver cómo afecta la manipulación de los componentes al funcionamiento de los \textit{GameObjects}.
+
+Al mismo tiempo configuré las HoloLens 2 y probé las aplicaciones ya instaladas para aprender cómo usar las gafas. Una vez adquirida una idea sobre el coste para desarrollar aplicaciones en las gafas, comencé con la gestión del proyecto.
+Dividí los objetivos principales en 3 e inicié la investigación y desarrollo de forma individual de cada una de las partes. 
+
+\section{Comunicación por vídeo y audio}
+
+Esta es la parte del proyecto donde más tiempo se invirtió, dado que surgieron un número considerable de dudas sobre cuál de las herramientas investigadas era la más adecuada para continuar. El primer método que tuve en consideración para realizar la conexión y enviar vídeo en tiempo real fue el \textit{plugin} propio de Unity (Multiplayer HLAPI) \cite{unity:multiplayer} pero descarté rápidamente su uso que estaba en fase beta y no me ofrecía todas las funcionalidades que necesitaba.
+
+El siguiente \textit{plugin} que del que hice uso fue PUN 2. En un principio era el \textit{plugin} definitivo que iba a usar, ya que era gratuito y muy fácil de usar. Tras la realización de diferentes pruebas logré conectar las 2 aplicaciones, sin embargo, el paquete no estaba preparado para el envío de vídeo. Tras los malos resultado del prototipo y ver que la licencia era "gratis", pero estaba sujeta a unas condiciones que si se cumplían pasaba a ser de pago, descarté el uso de Photon Network 2.
+
+Tras descartar 2 \textit{plugins} de Unity, probé con el servicio en línea de Microsoft Azure. Este incluye muchas funcionalidades prometedoras para añadir a este proyecto, aunque cuentan con una alta dificultad para ser implementadas. Tras la complejidad que suponía usar Azure, más el alto coste de su licencia una vez terminado el periodo de prueba, descarté su uso para el prototipo.
+
+Al final alcancé la solución final, el uso de WebRTC. Proyecto de código abierto para la comunicación en tiempo real para web, aplicaciones de ordenador y móviles. Permite la comunicación por voz y por vídeo, y cuenta con un \textit{plugin} para Unity con compatibilidad para las HoloLens 2. Este \textit{plugin} me ofrecía todas las características que necesitaba para el desarrollo del proyecto, por lo que lo instalé, creé un servidor local para conectar ambas aplicaciones y realicé un prototipo de videoconferencia que resultó en un éxito. Terminé añadiendo alguna mejora a este prototipo y pasé a la siguiente fase del proyecto.
+
+\section{Asistencia Remota}
+
+En esta sección hay dos partes destacables: los cálculos realizados para hacer aparecer de forma remota indicadores en realidad aumentada y los contratiempos que surgieron una vez implementada esta característica. 
+
+\subsection{Interpretación de la información y cálculos vectoriales}
+
+Los pasos seguidos para implementar la parte de asistencia remota son:
+
+\begin{itemize}
+	\item Hacer clic en la pantalla del ordenador.
+	\item Sacar las coordenadas del clic y enviarlas a las HoloLens 2.
+	\item Recibir las coordenadas y traducirlas a la resolución de las HoloLens 2.
+	\item Calcular la distancia y la posición para hacer aparecer la flecha.
+\end{itemize}
+
+En la aplicación del ordenador hay un plano invisible que se ajusta a la resolución de la pantalla del ordenador. La esquina inferior izquierda del plano corresponde a la coordenada X:0 Y:0 y la esquina superior derecha corresponderá a la resolución de la pantalla del ordenador, por ejemplo, si el monitor es de 1920x1080 las coordenadas irán de X:0 Y:0 a X:1920 Y:1080. Haciendo clic en la pantalla se recoge la información de la coordenada y es enviada al servidor. Las coordenadas enviadas son traducidas a un valor decimal que va del 0 al 1(en este caso 1 correspondería a 1920 en la horizontal y 1080 en la vertical) para facilitar su posterior manipulación. Una vez enviada la información al servidor, la aplicación de las HoloLens 2 recoge este dato.
+
+En las gafas existe una estructura similar a la del ordenador para interpretar la información recibida. Hay colocado un  plano invisible, con el tamaño equivalente a la resolución a la que graban las gafas, que está ajustado con el campo de visión de las HoloLens 2. En la esquina inferior izquierda (posición por defecto) hay un objeto que únicamente cuenta con el componente de trasformación, es decir, que solo tiene coordenadas. Este objeto es hijo del plano, lo que implica que obtiene unas coordenadas locales sobre este, y estas son: X:0 Y:0 para la esquina inferior izquierda y X:1 Y:1 para la esquina superior derecha. Una vez recibida la información del servidor, el \textit{GameObject} en el plano adquiere las coordenadas del clic.
+
+Para terminar, obtengo la dirección del \textit{raycast} realizando la siguiente operación \cite{calculos:vectoriales}: obtengo las coordenadas globales del objeto en el plano, le resto las de la cámara y normalizo el resultado. 
+Lanzo el \textit{raycast} con punto de origen las coordenadas de la cámara y la dirección ya calculada. El punto donde colisione con la asignación espacial será el lugar donde instancie la flecha.
+
+\imagen{camara.png}{Se muestra el plano correspondiente a la resolución de las HoloLens 2 (verde) y el objeto (rosa) que se mueve sobre este para obtener la dirección del \textit{raycast}}
+
+\subsection{Problemas con la resolución de la pantalla}
+
+Un problema en el que tuve que invertir bastante tiempo fue en calibrar todo lo mencionado anteriormente, ya que las HoloLens 2 según el uso que se le esté dando, graban su vista a una resolución u otra \cite{microsoft:resoluciones}. La lista de las resoluciones usadas es bastante amplia, por lo que me demoré para encontrar la correcta.
+
+Otro contratiempo surgió debido a que tanto la vista de la realidad como los hologramas son grabados del ojo derecho de las gafas, por lo que a la hora de instanciar los objetos, no aparecían exactamente donde debían. Tuve que ajustar manualmente el plano e ir haciendo pruebas hasta lograr corregir este fallo.
+

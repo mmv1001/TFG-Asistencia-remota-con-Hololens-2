@@ -1,0 +1,127 @@
+\capitulo{4}{Técnicas y herramientas}
+
+En esta sección de la memoria se cubrirá las técnicas metodológicas y las herramientas han sido utilizadas en el desarrollo de este proyecto. También se mencionarán las alternativas que se han tenido en consideración de las diferentes herramientas utilizadas o que hayan sido desechadas según iba evolucionando el proyecto.
+
+\section{Metodologías}
+
+\subsection{Scrum}
+
+Dentro de ITCL la metodología usada es Srcum \cite{scrum:srum}. Esta metodología es un esquema de trabajo para el desarrollo de \textit{software}, donde se aplican unas prácticas de trabajo colaborativas caracterizadas por un desarrollo incremental del producto. Se van realizando ciclos de un corto periodo de tiempo que constan con planificaciones, reuniones, desarrollo y revisiones del producto (\textit{sprints}). 
+
+Tras tener en cuenta que se trata de un prototipo, con un tiempo y tamaño de desarrollo menor que los proyectos oficiales de la empresa, decidí optar por esta metodología debido a que era capaz de cubrir todas las necesidades del trabajo.
+
+\section{Control de versiones}
+
+El \textit{software} de control de versiones \cite{wiki:control} considerado para este proyecto fue Git, puesto que es el usado dentro de ITCL y necesario para trabajar con sus repositorios privados. Git es un sistema de control de versiones distribuido donde cada desarrollador puede tener en local una copia propia del proyecto, e ir modificando sin ningún riesgo el proyecto de origen alojado en un repositorio. La GUI (Interfaz gráfica de usuario) a través de la que había trabajado con anterioridad fue GitHub Desktop. 
+
+Haciendo uso del GitHub Student Developer Pack al que tenemos acceso todos los estudiantes gracias a la Universidad de Burgos, utilizaré la aplicación GitKraken para el control de versiones.
+
+\subsection{GitKraken}
+
+GitKraken es una interfaz gráfica de usuario multiplataforma para el control de versiones con Git. He tomado la elección de usar esta aplicación debido a su interfaz sencilla e intuitiva, funcionalidades y su aspecto visualmente agradable.
+
+\section{Repositorio}
+
+Inicialmente alojé el proyecto en el servidor propio que tiene ITCL de Bitbucket \cite{git:bitbucket} y posteriormente decidí crear una copia en la plataforma GitHub para poder acceder al proyecto de forma personal.
+
+\subsection{Bitbucket}
+
+Es un servicio web de alojamiento de proyectos para el control de versiones colaborativo. Está desarrollado en python y permite trabajar tanto con Git como con Mercurial. Puede ser usado personalmente o comercialmente. ITCL tiene su propio servidor privado, lugar donde está subido este proyecto.
+
+\subsection{GitHub}
+
+Plataforma web de desarrollo colaborativo para el control de versiones Git de proyectos. Es completamente gratuita y ofrece todas las funcionalidades de Git. Para muchos es considerado el mejor servicio de alojamiento de proyectos. Además, complementaremos esta plataforma con el uso de ZenHub para la gestión del proyecto. 
+
+\section{Gestión de proyecto}
+
+Al igual que la elección del repositorio, comencé planificando y registrando mi trabajo en Jira \cite{git:jira}, herramienta utilizada en ITCL para la administración de los proyectos. Más tarde, con la elección de GitHub como segundo repositorio, elegí ZenHub para realizar la copia del seguimiento del proyecto y así poder contar con un duplicado de toda la gestión del proyecto y tener acceso a ella en cualquier momento.
+
+\subsection{Jira}
+
+Herramienta online para el desarrollo de software que hace uso de metodologías ágiles. Permite la administración de tareas, seguimiento de errores y gestión del proyecto. Todo esto es posible gracias a los tableros Scrum, hojas de ruta, informes y gráficos. 
+
+\subsection{Zenhub}
+
+ZenHub al igual que Jira, es una herramienta web para la gestión de proyectos con metodologías ágiles. Está diseñada para trabajar con el repositorio GitHub. Ofrece las funcionalidades típicas para la organización de proyectos. Cuenta con una aplicación web y una extensión para navegadores. Por comodidad he trabajado con la extensión de ZenHub para el navegador Google Chrome.
+
+\section{Unity}
+
+La elección de este motor gráfico para el desarrollo de la aplicación viene dada por ITCL, puesto que es la herramienta de trabajo utilizada por el departamento donde me encontraba.
+
+\subsection{UnityHub}
+
+Herramienta desarrollada por Unity para gestionar los proyectos de forma local. Permite crear, copiar y editar proyectos, gestionar la instalación de múltiples versiones del editor de Unity y actualizar el estado de la licencia asociada a tu cuenta.
+
+\subsubsection{Versión Unity}
+
+La versión de Unity Utilizada para este proyecto es 2019.4.14f
+
+\section{\textit{Plugins} Unity}
+
+Los \textit{plugins} de Unity son una parte importante del desarrollo, ya que ofrecen al usuario una serie de funcionalidades ya implementadas por terceros. Estos pueden ser gratuitos, de pago o un término medio entre las dos opciones, que dependerá de una serie de condiciones. Todos los \textit{plugins} utilizados en este proyecto son completamente de código abierto, libres de ser usados y modificados a disposición del usuario.
+
+\subsection{Mixed Reality WebRTC}
+
+Provee un soporte multiplataforma de comunicación en tiempo real de audio, vídeo y datos \cite{git:webrtc}. Incluyendo dispositivos como ambas generaciones de Hololens.
+
+\subsubsection{Mixed Reality WebRTC samples}
+
+Paquete que cuenta con ejemplos y escenarios típicos para Mixed Reality WebRTC.
+
+\subsection{Rider Editor}
+
+Pequeño \textit{plugin} que instala Rider para comunicarse con el editor de Unity.
+
+\subsection{Text Mesh Pro}
+
+Mejora visual y de rendimiento a todas las interfaces clásicas de Unity.
+
+\subsection{Windows Mixed Reality}
+
+Paquete que incluye todas las herramientas necesarias para desarrollar aplicaciones para las HoloLens 2 en Unity \cite{unity:windowsmixedreality}.
+
+\subsection{Unity UI}
+
+Paquete instalado por defecto de Unity que provee herramientas necesarias para el diseño e implementación de interfaces.
+
+\subsection{Visual Studio Code Editor}
+
+Paquete instalado por defecto de Unity que permite la edición de código con Visual Studio 2019.
+
+\subsection{PUN 2}
+
+Photon Unity Networking \cite{pun:pun} es un paquete desechado durante el desarrollo que permite conectar aplicaciones de forma global de manera sencilla.
+
+\section{Entorno de desarrollo integrado (IDE)}
+
+Por defecto Unity instala Microsoft Visual Studio \cite{visual:studio}. No tenía intención de trabajar con este IDE, pero es completamente necesario para el desarrollo de aplicaciones para las HoloLens 2, debido a que una vez realizada la \textit{build} del proyecto de Unity, se instala la aplicación en las gafas a través de Visual Studio. El uso que le di fue para probar los prototipos durante el desarrollo y el lanzamiento final de la aplicación en las gafas. Toda la parte de programación ha sido realizada desde Rider \cite{jetbrain:rider} debido a preferencias personales con este entorno de desarrollo.
+
+\subsection{Visual Stuido}
+
+Entorno de desarrollo perteneciente a Microsoft con una gran compatibilidad con diferentes tipos de lenguajes de programación como C++, C\#, Visual Basic .NET, F\#, Java, Python, Ruby y PHP. Asignado por defecto para la creación y edición de scripts en Unity.
+
+\subsection{Rider}
+
+Es un entorno de programación .NET desarrollado por JetBrains orientado a la programación con C\# y completamente compatible con Unity. La licencia de este software está incluida en GitHub Student Developer Pack.
+
+\section{Otros}
+
+A esta sección pertenecen diferentes herramientas que no cuentan con una categoría en común donde ser agrupadas.
+
+\subsection{Node.js}
+
+Entorno de ejecución de código abierto y multiplataforma utilizado para realizar la conexión de los 2 dispositivos a través del \textit{plugin} de WebRTC. Haremos uso de un proyecto de código abierto llamado node.dss \cite{node:dss} para establecer la conexión.
+
+\subsection{Windows Device Portal}
+
+Portal de dispositivos de realidad virtual y mixta de Microsoft \cite{windows:deviceportal} utilizado para la administración y configuración de las HoloLens 2 a través de la red. Esta aplicación fue usada durante las primeras fases de desarrollo del proyecto. Para instalarla es necesario en uso de la Microsoft Store de Windows.
+
+\subsection{SDK Windows 10}
+
+Kit de desarrollo de software de Windows \cite{windows:sdk} completamente necesario para trabajar con las HoloLens 2, puesto que este \textit{hardware} trabaja directamente sobre este sistema operativo.
+
+\subsection{Microsoft Azure}
+
+Servicio en la nube perteneciente a Microsoft \cite{microsoft:azure} que proporciona un conjunto de más de 200 herramientas diseñadas para, por ejemplo, lanzar aplicaciones, administrar servidores, añadir funcionalidades a nuestras aplicaciones, etc. Tres son las herramientas que se iban a hacer uso de este servicio: \textit{streaming}, reconocimiento de objetos y renderizado de objetos 3D de manera remota. 
+
+En una fase del proyecto este servicio fue desechado debido a la complejidad de su implementación, la gran curva de aprendizaje y el alto coste de su licencia. No se descarta su uso en un futuro cuando el proyecto pase a las manos de ITCL y deje de ser un simple prototipo.
