@@ -1,0 +1,10 @@
+Link github: https://github.com/mmv1001/TFG-Asistencia-remota-con-Hololens-2
+Link descarga Builds y Fuentes: https://universidaddeburgos-my.sharepoint.com/:u:/g/personal/mmv1001_alu_ubu_es/Ea8Yx7vFwp1ErWE_FEHMUuEBX2I5xWV4hL99L4Qes9arCg?e=qRNjxk
+
+\Builds: Carpeta con las aplicaciones resultado.
+\Documetación: Carpeta que contiene los pdf de los anexos y la memoria.
+\Fuentes: Carpeta que contiene directorio del proyecto de Unity (debido a un 
+acuerdo de confindencialidad con ITCL no puedo subir la totalidad del código) y 
+el directorio de node-dss
+\Fuentes_Documetación: Carpeta que contiene el directorio del proyecto latex
+\Vídeo: Video con el resultado final del proyecto
